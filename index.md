@@ -1,13 +1,13 @@
 
 # Golden Hour Duck Park Image
 
-![Image]([http://url/a.png](https://r800360.github.io/cse15l-lab-reports/Images/IMG_1221.JPG)
+![Image](https://r800360.github.io/cse15l-lab-reports/Images/IMG_1221.JPG)
 
 ## by Rohan Sachdeva
 
 *Taken 7/1/2020 at 8:10 PM*
 
-[Link]([http://example.com](https://r800360.github.io/cse15l-lab-reports/Images/IMG_1221.JPG)
+[Link](https://r800360.github.io/cse15l-lab-reports/Images/IMG_1221.JPG)
 
 
 > This is a cool image that I took in my high school Photographic Design class over the summer between 9th and 10th grade. I went to the park with my father in order to capture the photo.
