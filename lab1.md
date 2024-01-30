@@ -24,7 +24,7 @@ After this, we advance to the `ls` command which is short for "list". Starting a
 
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab1/ls_command_no_arguments.png)
 
-We can see from the output that the contents of the current `/home/lecture1` working directory were listed. In this working directory, there was the `./messages/` directory which contained the translated "Hello World" messages from the lab session, the `Hello.java` file from the lab session, the Hello.class file that we compiled in the lab session, and the Github `README.md`. Therefore, the `ls` command with no arguments worked as expected in listing out the files and highlighting the `./messages/` directory in blue. In this sense, the output was not an error.
+We can see from the output that the contents of the current `/home/lecture1` working directory were listed. In this working directory, there was the `./messages/` directory which contained the translated "Hello World" messages from the lab session, the `Hello.java` file from the lab session, the Hello.class file that we compiled in the lab session, and the Github `README`. Therefore, the `ls` command with no arguments worked as expected in listing out the files and highlighting the `./messages/` directory in blue. In this sense, the output was not an error.
 
 Continuing, when we start at the `/home/` working directory and run the `ls` command with the directory containing the translated "Hello World" messages from the first lab session, we have,
 
@@ -36,7 +36,7 @@ Finally, we can start at the `/home/` working directory and run the `ls` command
 
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab1/ls_command_file.png)
 
-Here, we observe from the output that the `ls` command took our input file path and returned the same file path to us (which was /home/lecture1/messages/en-us.txt). Since the `ls` command is meant to list single files and directories, this is an expected output and the base case of the "list" command since it travelled to a singular file. Due to this, the output is not an error, and there is no error message.
+Here, we observe from the output that the `ls` command took our input file path and returned the same file path to us (which was `/home/lecture1/messages/en-us.txt`). Since the `ls` command is meant to list single files and directories, this is an expected output and the base case of the "list" command since it travelled to a singular file. Due to this, the output is not an error, and there is no error message.
 
 Lastly, we will demonstrate the `cat` command, which is short for "concatenate". Starting at the `/home/lecture1` working directory and running the command with no arguments, we have,
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab1/cat_command_no_arguments.png)
