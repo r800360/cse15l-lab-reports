@@ -6,7 +6,7 @@ We begin with the `cd` command, which is short for "change directory". Starting 
 
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab1/cd_command_no_arguments.png)
 
-Here, we observe that the `cd` command changed from the aforementioned working directory to `~` (which is the `/home/` directory) without any additional output as a default behavior of the command because we did not specify a directory to change to as an argument for the command. It is clear that since the output is empty, this is not an error.
+Here, we observe that the `cd` command changed from the aforementioned working directory to `~` (which is the `/home/` directory) without any additional output as a default behavior of the command because we did not specify a directory to change to as an argument for the command. From this behavior, it is clear that this is not an error.
 
 Continuing, when we start at the `/home/` working directory and run the `cd` command with the directory containing the translated "Hello World" messages from the first lab session, we have,
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab1/cd_command_directory.png)
