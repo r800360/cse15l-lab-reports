@@ -2,7 +2,7 @@
 
 # Part 1
 
-The following is the code for my Chat Server written in Java which relies on `Server.java` containing the URLHandler interface:
+The following is the code for my Chat Server written in Java which relies on `Server.java` containing the `URLHandler` interface:
 
 ```
 import java.io.IOException;
