@@ -61,14 +61,14 @@ When I enter the above URL into my web browser, the `handleRequest(URI url)` met
 Here, I have included a screenshot depicting the application of the `ls` command to list the absolute directory to the private key on my personal computer for the ssh connection to my `ieng6` machine.
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab2/PrivateSSHKey.png)
 
-Here, I have included a screenshot depicting the application of the `ls` command to list the absolute directory to the corresponding public key on the ieng6 machine.
+Similarly, I have included a screenshot depicting the application of the `ls` command to list the absolute directory to the corresponding public key on the ieng6 machine.
 
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab2/PublicSSHKey.png)
 
-Here, I have included a screenshot depicting the process of performing an SSH connection to my `ieng6` machine without a password due to the adaption of the aforementioned public and private keys.
+Finally, I have included a screenshot depicting the process of performing an SSH connection to my `ieng6` machine without a password due to the adaption of the aforementioned public and private keys.
 
 ![Image](https://r800360.github.io/cse15l-lab-reports/Images/Lab2/SSH_Without_Password.png)
 
 # Part 3
 
-Something that I learned in lab in Week 2 was how to create my own web server in Java that incorporates paths and queries. This skill can help me in developing larger projects, some of which I have seen are a flight application that tracks tickets, passengers, flights, and airlines as well as a task list application that keeps track of tasks and users that are assigned to a task. Something that I learned in lab in Week 3 was the secure copy command which applies many of the concepts that I learned in MATH 187A: Introduction to Cryptography to be able to securely transfer information between a local and a remote sytem.
+Something that I learned in lab in Week 2 was how to create my own web server in Java that incorporates paths and queries. This skill can help me in developing larger projects, some of which I have seen are a flight application that tracks tickets, passengers, flights, and airlines as well as a task list application that keeps track of tasks and users that are assigned to a task. Something that I learned in lab in Week 3 was the secure copy command which applies many of the concepts that I learned in MATH 187A: Introduction to Cryptography regarding Public Key Cryptography to be able to securely transfer information between a local and a remote sytem. I hope that my knowledge of the command may be helpful in a future internship experience by allowing me to copy build files or my working files between my local machine and a remote server or between two remote servers.
