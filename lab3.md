@@ -7,8 +7,6 @@ The bug that I chose from Week 4's lab is the concerning the `reversed` method i
 Program:
 
 ```
-
-
 public class ArrayExamples {
 
   // Returns a *new* array with all the elements of the input array in reversed
@@ -20,41 +18,30 @@ public class ArrayExamples {
     }
     return arr;
   }
-
-
 }
-
 ```
-
-
 
 Passing and Failure-Inducing Inputs:
 
 ```
-
-import static org.junit.Assert.*;
-import org.junit.*;
-
-public class ArrayTests {
-
-  @Test
-  public void testReversed() {
-    int[] input1 = { };
-    assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
-  }
-
-  @Test
-  public void testOddReverse() {
-    int[] input1 = { 9,5,8,2,23 };
-    assertArrayEquals(new int[]{ 23, 2, 8, 5, 9 }, ArrayExamples.reversed(input1));
-  }
-
-  @Test
-  public void testEvenReverse() {
-    int[] input1 = { 9,5,8,2 };
-    assertArrayEquals(new int[]{ 2, 8, 5, 9 }, ArrayExamples.reversed(input1));
-  }
-
+@Test
+public void testReversed() {
+  int[] input1 = { };
+  assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
+}
+```
+```
+@Test
+public void testOddReverse() {
+  int[] input1 = { 9,5,8,2,23 };
+  assertArrayEquals(new int[]{ 23, 2, 8, 5, 9 }, ArrayExamples.reversed(input1));
+}
+```
+```
+@Test
+public void testEvenReverse() {
+  int[] input1 = { 9,5,8,2 };
+  assertArrayEquals(new int[]{ 2, 8, 5, 9 }, ArrayExamples.reversed(input1));
 }
 ```
 
