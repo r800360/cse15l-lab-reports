@@ -171,6 +171,8 @@ In both examples above, we can observe how applying the `grep` command with the 
 ./technical/plos/journal.pbio.0020439.txt:        extra sense” (F. Darwin 1905). Today's biologists increasingly recognize that appropriate
 ```
 
+Similar to before, the purpose here would be to look for the name of the famous scientist (Charles) Darwin within these journal records to learn more about Darwin and more about how this research applies or utilizes the work of Darwin. However, as compared to the previous results, we now see that case sensitivity is removed from the search to give us more results that include the name of the scientist in all-caps, and these special search results seem to highlight a special type of analysis which could be of significance for someone studying this research.
+
 ```
 [rosachdeva@ieng6-201]:docsearch:507$ grep -ir "Experimentally" ./technical | head
 ./technical/biomed/1471-2091-2-7.txt:        deneddylated state. As this shield is experimentally
@@ -187,5 +189,5 @@ In both examples above, we can observe how applying the `grep` command with the 
 
 Here, we piped the output of `grep` into the `head` command as the command output was too long to show in the report.
 
-
+3. `-c`: This command-line option takes the results of a regular `grep` search and creates a count of the frequency of search results per file. The same command output applying all three of the discussed flags is attached below:
 Source for all options: https://man7.org/linux/man-pages/man1/grep.1.html
