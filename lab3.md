@@ -286,4 +286,4 @@ Here, we have a similar idea to the previous example with the motivation of look
 
 In summary, `grep` is very versatile and comes with numerous features with regards to finding pieces of text or the number of occurrences of text in a collection of file - the `grep` command alone serves as a good motivation for having or installing a Linux distribution, and a lot of the study on `grep` discussed here really only touches the iceberg of what can be done with such a powerful command along with the ability to combine or compose command line options or flags, such as `-r` (recursive), `-i` (ignore casing), `-c` (count), `-v` (complementary search), and of course `|` (pipe), to name the few that were used in this report. Hopefully, this resubmission was a bit more enjoyable and interesting to read than my original submission!
 
-Source for all options: [https://man7.org/linux/man-pages/man1/grep.1.html]
+Source for all options: [https://man7.org/linux/man-pages/man1/grep.1.html](https://man7.org/linux/man-pages/man1/grep.1.html)
