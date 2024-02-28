@@ -144,7 +144,7 @@ Here, the `grep` command is able to look into various subdirectories in order to
 
 In both examples above, we can observe how applying the `grep` command with the recursive flag `-r` is significantly faster than searching for Strings manually though all of the files.
 
-2. `-i`: This command-line option applies a search through `grep` in which the case of the String argument is ignored. The same command output applying both of the discussed flags is attached below:
+2. `-i`: This command-line option applies a search through `grep` in which the case of the String argument is ignored. The examples of this are attached below:
 
 ```
 [rosachdeva@ieng6-201]:docsearch:211$ grep -ir "Darwin" ./technical
@@ -187,7 +187,103 @@ Similar to before, the purpose here would be to look for the name of the famous 
 ./technical/biomed/1471-2105-3-30.txt:          experimentally characterized modules
 ```
 
-Here, we piped the output of `grep` into the `head` command as the command output was too long to show in the report.
+Here, we piped the output of `grep` into the `head` command as the command output was too long to show in the report. We see the first ten lines of the output of a grep search for the term "Experimentally" in a manner that is both recursive in looking at files under the `biomed` subdirectory and not case-sensitive as we see both "Experimentally" and "experimentally". This output is useful as we can essentially understand the author's voice (who is presumably a biomedical scientist), and how the author discusses procedures and methods surrounding the author's work.
 
-3. `-c`: This command-line option takes the results of a regular `grep` search and creates a count of the frequency of search results per file. The same command output applying all three of the discussed flags is attached below:
+
+
+3. `-l`: This command-line option takes the results of a regular `grep` search and outputs the files in which matches are found. The same command output applying all three of the discussed flags is attached below: 
+
+```
+[rosachdeva@ieng6-201]:docsearch:543$ grep -irl "Senator" ./technical
+./technical/911report/chapter-12.txt
+./technical/911report/chapter-13.1.txt
+./technical/911report/chapter-13.3.txt
+./technical/911report/chapter-13.5.txt
+./technical/911report/chapter-3.txt
+./technical/911report/chapter-6.txt
+./technical/biomed/1472-6947-2-7.txt
+./technical/government/About_LSC/State_Planning_Report.txt
+./technical/government/Env_Prot_Agen/jeffordslieberm.txt
+./technical/government/Env_Prot_Agen/nov1.txt
+./technical/government/Gen_Account_Office/July11-2001_gg00172r.txt
+./technical/government/Gen_Account_Office/June30-2000_gg00135r.txt
+./technical/government/Gen_Account_Office/May1998_ai98068.txt
+./technical/government/Gen_Account_Office/Oct15-2001_d0224.txt
+./technical/government/Gen_Account_Office/Sept14-2002_d011070.txt
+./technical/government/Gen_Account_Office/ai9868.txt
+./technical/government/Gen_Account_Office/d0269g.txt
+./technical/government/Gen_Account_Office/pe1019.txt
+./technical/government/Media/Politician_Practices.txt
+./technical/plos/journal.pbio.0020272.txt
+./technical/plos/journal.pbio.0030127.txt
+./technical/plos/pmed.0020209.txt
+```
+
+In this example, the purpose is to document all of the files containing any mention of the term "Senator" to find places where the research may have connections to senators, who are people in positions of power, without seeing each of the explicit file matches - this output could be used to select target files to copy over and analyze more thoroughly (which could probably be implemented through commands like `scp` or `rsync`). The way that the command works is by searching the `./technical` directory recursively for "Senator" while ignoring case and using the `l` tag portion (in `-irl`) to extract only the filenames from the output of the command.
+
+```
+[rosachdeva@ieng6-201]:docsearch:545$ grep -irl "Darwin" ./technical
+./technical/biomed/1471-2105-3-2.txt
+./technical/biomed/gb-2001-2-9-research0035.txt
+./technical/biomed/gb-2003-4-9-r58.txt
+./technical/plos/journal.pbio.0020046.txt
+./technical/plos/journal.pbio.0020071.txt
+./technical/plos/journal.pbio.0020302.txt
+./technical/plos/journal.pbio.0020311.txt
+./technical/plos/journal.pbio.0020346.txt
+./technical/plos/journal.pbio.0020347.txt
+./technical/plos/journal.pbio.0020439.txt
+```
+
+In this example, the purpose is to document all of the files containing any mention of the famous scientist, Charles Darwin, to see the places in which the research has connections to him without having to see explicit file matches - this output could be used to select target files to copy over and analyze more thoroughly (which could probably be implemented through commands like `scp` or `rsync`). The way that the command works is by searching the `./technical` directory recursively for "Darwin" while ignoring case and using the `l` tag portion (in `-irl`) to extract only the filenames from the output of the command.
+
+
+4. `-c`: This command-line option takes the results of a regular `grep` search and creates a count of the frequency of search results per file. `-v`: This command selects lines that do not match a certain String argument search through `grep` (so it is essentially a complementary or complement-based search technique). Normally, I would have only presented a single option, but these options make sense together when searching a large database of files as discussed in the examples below:
+
+```
+[rosachdeva@ieng6-201]:docsearch:516$ grep -irc "Darwin" ./technical | grep -v ':0'
+./technical/biomed/1471-2105-3-2.txt:2
+./technical/biomed/gb-2001-2-9-research0035.txt:7
+./technical/biomed/gb-2003-4-9-r58.txt:1
+./technical/plos/journal.pbio.0020046.txt:2
+./technical/plos/journal.pbio.0020071.txt:1
+./technical/plos/journal.pbio.0020302.txt:1
+./technical/plos/journal.pbio.0020311.txt:1
+./technical/plos/journal.pbio.0020346.txt:1
+./technical/plos/journal.pbio.0020347.txt:3
+./technical/plos/journal.pbio.0020439.txt:2
+```
+
+Here, we have a much more sophisticated application of `grep`: We are conducting a statistical study of the frequency of keyword "Darwin" to understand how many times each file references the famous scientist in the research here (which goes along with our earlier `grep` searches on the scientist), and we can note that the `./technical/biomed/gb-2001-2-9-research0035.txt` is a clear outlier in how it mentions Darwin 7 times. The way that this works is that `grep -irc "Darwin" ./technical` will give us the frequency counts of the recursive search for "Darwin" in all subdirectories of `./technical`, which will return the above results intermixed with a lot of files that have 0 results for the search term ("Darwin"), so to get nontrivial results as we see above, we pipe the output of the command into grep with `-v` to actually filter out any line occurrence that contains the colon symbol followed by 0.
+
+```
+[rosachdeva@ieng6-201]:docsearch:517$ grep -irc "Senator" ./technical | grep -v ':0'
+./technical/911report/chapter-12.txt:1
+./technical/911report/chapter-13.1.txt:1
+./technical/911report/chapter-13.3.txt:2
+./technical/911report/chapter-13.5.txt:2
+./technical/911report/chapter-3.txt:2
+./technical/911report/chapter-6.txt:1
+./technical/biomed/1472-6947-2-7.txt:1
+./technical/government/About_LSC/State_Planning_Report.txt:1
+./technical/government/Env_Prot_Agen/jeffordslieberm.txt:11
+./technical/government/Env_Prot_Agen/nov1.txt:3
+./technical/government/Gen_Account_Office/July11-2001_gg00172r.txt:2
+./technical/government/Gen_Account_Office/June30-2000_gg00135r.txt:1
+./technical/government/Gen_Account_Office/May1998_ai98068.txt:1
+./technical/government/Gen_Account_Office/Oct15-2001_d0224.txt:2
+./technical/government/Gen_Account_Office/Sept14-2002_d011070.txt:1
+./technical/government/Gen_Account_Office/ai9868.txt:1
+./technical/government/Gen_Account_Office/d0269g.txt:1
+./technical/government/Gen_Account_Office/pe1019.txt:1
+./technical/government/Media/Politician_Practices.txt:1
+./technical/plos/journal.pbio.0020272.txt:1
+./technical/plos/journal.pbio.0030127.txt:1
+./technical/plos/pmed.0020209.txt:1
+```
+
+Here, we have a similar idea to the previous example with the motivation of looking for documentation of senators, who are people in key positions of power, and understand which file or files may give us the most information on this; notably, we see a clear outlier and critical search result, which is `./technical/government/Env_Prot_Agen/jeffordslieberm.txt` - this file makes some mention of the term "Senator" 11 times, so using this file, we can better understand the political context of the research being done potentially. The way that the command works is that `grep -irc "Senator" ./technical` will give us the frequency counts of the recursive search for "Senator" in all subdirectories of `./technical`, which will return the above results intermixed with a lot of files that have 0 results for the search term ("Darwin"), so to get nontrivial results as we see above, we pipe the output of the command into grep with `-v` to actually filter out any line occurrence that contains the colon symbol followed by 0.
+
+In summary, `grep` is very versatile and comes with numerous features with regards to finding pieces of text or the number of occurrences of text in a collection of file - the `grep` command alone serves as a good motivation for having or installing a Linux distribution, and a lot of the study on `grep` discussed here really only touches the iceberg of what can be done with such a powerful command along with the ability to combine or compose command line options or flags, such as `-r` (recursive), `-i` (ignore casing), `-c` (count), `-v` (complementary search), and of course `|` (pipe), to name the few that were used in this report. Hopefully, this resubmission was a bit more enjoyable and interesting to read than my original submission!
+
 Source for all options: https://man7.org/linux/man-pages/man1/grep.1.html
