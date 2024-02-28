@@ -85,12 +85,12 @@ These fixes addressed the issues that were causing failures previously because a
 
 For this part of the lab report, the command that I chose was the `grep` command, which I believe was the most useful of the three commands and may alone be a motivation for someone to choose a Linux distribution over other alternatives.
 
-
 Four interesting command-line options to use with the `grep` command are:
 
-* `-r` : Although this command-line option is easy to ignore, it makes it possible in the first place to use `grep` with directories and subdirectories by recursively searching them for a String of text. As an example, we can try to search for "Darwin" and "Senator" in `./technical`. The examples of this are as follows:
+1. `-r` : Although this command-line option is easy to ignore, it makes it possible in the first place to use `grep` with directories and subdirectories by recursively searching them for a String of text. As an example, we can try to search for "Darwin" and "Senator" in `./technical`. The examples of this are as follows:
  ```
-[rosachdeva@ieng6-201]:docsearch:210$ grep -r "Darwin" ./technical                                                                                                ./technical/biomed/1471-2105-3-2.txt:        In the 1830's, Charles Darwin's investigation of the
+[rosachdeva@ieng6-201]:docsearch:210$ grep -r "Darwin" ./technical
+./technical/biomed/1471-2105-3-2.txt:        In the 1830's, Charles Darwin's investigation of the
 ./technical/biomed/1471-2105-3-2.txt:        In the 1970's, Woese and Fox revisited Darwinian
 ./technical/plos/journal.pbio.0020046.txt:        answers to possible questions and criticisms to avoid stuttering. Charles Darwin also
 ./technical/plos/journal.pbio.0020046.txt:        stuttered; interestingly, his grandfather Erasmus Darwin suffered from the same condition,
@@ -144,7 +144,7 @@ Here, the `grep` command is able to look into various subdirectories in order to
 
 In both examples above, we can observe how applying the `grep` command with the recursive flag `-r` is significantly faster than searching for Strings manually though all of the files.
 
-* `-i`: This command-line option applies a search through `grep` in which the case of the String argument is ignored. The examples of this are attached below:
+2. `-i`: This command-line option applies a search through `grep` in which the case of the String argument is ignored. The examples of this are attached below:
 
 ```
 [rosachdeva@ieng6-201]:docsearch:211$ grep -ir "Darwin" ./technical
@@ -191,7 +191,7 @@ Here, we piped the output of `grep` into the `head` command as the command outpu
 
 
 
-* `-l`: This command-line option takes the results of a regular `grep` search and outputs the files in which matches are found. The same command output applying all three of the discussed flags is attached below: 
+3. `-l`: This command-line option takes the results of a regular `grep` search and outputs the files in which matches are found. The same command output applying all three of the discussed flags is attached below: 
 
 ```
 [rosachdeva@ieng6-201]:docsearch:543$ grep -irl "Senator" ./technical
@@ -238,7 +238,7 @@ In this example, the purpose is to document all of the files containing any ment
 In this example, the purpose is to document all of the files containing any mention of the famous scientist, Charles Darwin, to see the places in which the research has connections to him without having to see explicit file matches - this output could be used to select target files to copy over and analyze more thoroughly (which could probably be implemented through commands like `scp` or `rsync`). The way that the command works is by searching the `./technical` directory recursively for "Darwin" while ignoring case and using the `l` tag portion (in `-irl`) to extract only the filenames from the output of the command.
 
 
-* `-c`: This command-line option takes the results of a regular `grep` search and creates a count of the frequency of search results per file. `-v`: This command selects lines that do not match a certain String argument search through `grep` (so it is essentially a complementary or complement-based search technique). Normally, I would have only presented a single option, but these options make sense together when searching a large database of files as discussed in the examples below:
+4. `-c`: This command-line option takes the results of a regular `grep` search and creates a count of the frequency of search results per file. `-v`: This command selects lines that do not match a certain String argument search through `grep` (so it is essentially a complementary or complement-based search technique). Normally, I would have only presented a single option, but these options make sense together when searching a large database of files as discussed in the examples below:
 
 ```
 [rosachdeva@ieng6-201]:docsearch:516$ grep -irc "Darwin" ./technical | grep -v ':0'
